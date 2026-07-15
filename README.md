@@ -33,6 +33,24 @@ The dashboard provides insights into healthcare service utilization through inte
 
 ---
 
+## DAX Measures
+
+- Vists_Percentage = 
+DIVIDE(
+    [Visits],
+ CALCULATE(
+    [Visits], 
+ALL(Cities[City AR])
+
+ ) )
+
+
+ City Visitts Avg = 
+VAR Cities = DISTINCTCOUNT(Cities[City ID])
+VAR Visit = [Visits]
+RETURN DIVIDE(Visit, Cities, 0)
+
+Visits = SUM(VistOfPatient[Value])
 
 
 ##  Data Source
